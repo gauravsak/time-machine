@@ -1,0 +1,55 @@
+<div class="row" ng-controller="addEntriesController as controller" ng-init="controller.init()">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a id="addEntryPanel" data-toggle="collapse" href="#addEntries">
+					Add Entries
+				</a>
+			</div>		
+			<div id="addEntries" class="panel-collapse collapse">
+				<div class="panel-body">
+					<form role="form" ng-submit="controller.addEntries()">
+						<div class="row">
+							<div class="col-md-4">
+								<autocomplete click-activation="true" attr-placeholder="type to search projects..." attr-input-class="form-control" attr-input-id="project" ng-model="model.typedProjectName" data="model.projectNames" on-select="controller.selectProject" on-type="controller.projectNameChanged"></autocomplete>
+							</div>
+							<div class="col-md-4">
+								<input type="text" disabled ng-model="model.selectedContact.name" class="form-control" id="contact">
+							</div>
+							<div class="col-md-4">
+								<label class="sr-only" for="duration">Duration</label>
+								<input type="text" ng-model="model.duration" class="form-control" id="duration" placeholder="Duration(in hours)">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<label class="checkbox">
+									<input type="checkbox" id="selectAllWeekdays" ng-model="model.allWeekdaysSelected" ng-change="model.toggleAllWeekdays()"> Select all weekdays
+								</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<table class="table table-bordered">
+									<tr ng-repeat="week in model.dates">
+										<td ng-repeat="date in week track by $index" class="text-center pointer calendar-date" ng-class="{'date-weekend': date.isWeekend(), 'date-disabled': date.isInFuture(), 'date-selected': model.isDateSelected(date)}" ng-click="model.selectDate(date)">
+											{{date.value.getDate()}}
+											<div><small class="text-muted">{{date.dayName()}}</small></div>
+										</td>
+									</tr>
+								</table>	
+							</div>
+							<div class="col-md-4"></div>
+						</div>
+						<div class="row">
+							<div class="col-md-2">
+								<button id="addEntriesSubmit" ng-disabled="model.isInvalid()"class="btn btn-primary">Add Entries</button>
+							</div>
+						</div>
+					</form>
+				</div>	  	
+			</div>
+		</div>
+	</div>
+</div>

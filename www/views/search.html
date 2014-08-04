@@ -1,0 +1,59 @@
+<div ng-controller="searchController as controller">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Search Entries</div>		
+				<div class="panel-body">
+					<form role="form" ng-submit="controller.search()">
+						<div class="row">
+							<div class="col-md-4">
+								<autocomplete click-activation="true" attr-placeholder="type to search projects..." attr-input-class="form-control" attr-input-id="project" ng-model="model.typedProjectName" data="model.projectNames" on-select="controller.selectProject" on-type="controller.projectNameChanged"></autocomplete>
+							</div>
+							<div class="col-md-4">
+								<input type="text" disabled ng-model="model.selectedContact.name" class="form-control" id="contact">
+							</div>
+							<div class="col-md-2">
+								<quick-datepicker ng-model='model.fromDate' placeholder="Pick From date" required="true" ></quick-datepicker>
+							</div>
+							<div class="col-md-2">
+								<quick-datepicker ng-model='model.toDate' placeholder="Pick To date" required="true"></quick-datepicker>
+							</div>		
+						</div>
+						</br>
+						<div class="row">					
+							<div class="col-md-2">
+								<button id="search" ng-disabled="model.isInvalid()" ng-click="controller.search()" class="btn btn-primary">Search Entries</button>
+							</div>
+							<div class="col-md-2">
+								<button id="quickSearch" ng-disabled="model.isQuickSearchInvalid()" ng-click="controller.quickSearch()"class="btn btn-primary">Quick Search In Current Year</button>
+							</div>
+						</div>
+					</form>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="row" ng-show="model.searchResults">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Search Results</div>
+				<div class="panel-body">	
+				  <table class="table table-striped">
+						<tr>
+							<th class="col-md-2"></th>
+							<th class="col-md-4">Date</th>
+							<th class="col-md-4">Duration (hrs)</th>
+							<th class="col-md-2"></th>
+						</tr>
+						<tr ng-repeat="entry in model.searchResults" class="entry">
+							<td class="col-md-2"></td>
+							<td class="date col-md-4">{{entry.date}}</td>
+							<td class="duration col-md-4">{{entry.duration}}</td>
+							<td class="col-md-2"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

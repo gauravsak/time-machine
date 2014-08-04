@@ -1,0 +1,46 @@
+<div class="row" ng-controller="listEntriesController as controller" ng-init="controller.init()">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="row">
+					<div class="col-md-11">
+				        <a data-toggle="collapse"  href="#viewEntries">
+				          View Entries
+				        </a>
+					</div>
+					<div class="col-md-1">
+				        <button id="deleteSelected" class="btn btn-danger pull-right" ng-disabled="model.isNoEntrySelected()" ng-click="controller.deleteAllSelectedEntries()">Delete selected</button>
+					</div>
+				</div>	
+		    </div>
+			<div id="viewEntries" class="panel-collapse collapse in">	
+			  <table class="table table-striped">
+					<tr>
+						<th>
+							<label class="checkbox">
+							  <input ng-model="model.allEntriesSelected" type="checkbox" ng-change="model.selectAllEntries()">
+							</label>
+						</th>
+						<th>Date</th>
+						<th>Contact</th>
+						<th>Project</th>
+						<th>Duration (hrs)</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="entry in model.entries" class="entry">
+						<td>
+							<label class="checkbox">
+							  <input type="checkbox" ng-checked="model.isEntrySelected(entry.id)" ng-click="model.selectEntry(entry.id)">
+							</label>
+						</td>
+						<td class="date">{{entry.date}}</td>
+						<td class="contact">{{entry.contact}}</td>
+						<td class="project">{{entry.project}}</td>
+						<td class="duration">{{entry.duration}}</td>
+						<td><button class="close" ng-click="controller.deleteEntry(entry.id)">&times;</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
