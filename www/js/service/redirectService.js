@@ -1,5 +1,6 @@
-define(['modules/app','service/contactsService','service/projectsService'] , function (app) {
-  app.service('redirectService',['$location', '$sessionStorage', '$q','contactsService','projectsService',function($location, $sessionStorage, $q ,contactsService, projectsService){
+angular.module("services", [])
+//define(['modules/app','service/contactsService','service/projectsService'] , function (app) {
+.service('redirectService',['$location', '$sessionStorage', '$q','contactsService','projectsService',function($location, $sessionStorage, $q ,contactsService, projectsService){
     
     this.currentEntries = function() {
       var today = new Date();
@@ -18,4 +19,3 @@ define(['modules/app','service/contactsService','service/projectsService'] , fun
     };
     
   }]);
-});

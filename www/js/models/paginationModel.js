@@ -1,4 +1,4 @@
-define([] , function () {
+function PaginationModel() {
 
   var formatToMonthYear = function(date) {
     var actualMonth = date.getMonth() + 1;
@@ -35,4 +35,4 @@ define([] , function () {
 
   return PaginationModel;
 
-});	
+}

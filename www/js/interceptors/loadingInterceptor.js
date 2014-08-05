@@ -1,5 +1,6 @@
-define(['modules/app'], function(app){	
-  app.config(['$httpProvider',function($httpProvider) {
+angular.module("interceptors", [])
+//define(['modules/app'], function(app){	
+.config(['$httpProvider',function($httpProvider) {
     $httpProvider.interceptors.push(['$q','$injector',function($q, $injector) {        
         var $rootScope;
         var pendingRequests = 0;
@@ -38,5 +39,3 @@ define(['modules/app'], function(app){
     }]);
 
   }]);
-
-});

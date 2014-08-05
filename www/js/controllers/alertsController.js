@@ -1,6 +1,6 @@
-define(['modules/app'] , function (app) {
-
-  app.controller('alertsController',['$rootScope',function($rootScope){  	
+angular.module("controllers", [])
+//define(['modules/app'] , function (app) {
+.controller('alertsController',['$rootScope',function($rootScope){  	
     $rootScope.alerts = {};
 
     this.dismissSuccess = function() {
@@ -12,5 +12,3 @@ define(['modules/app'] , function (app) {
     };
 
   }]);
-
-});

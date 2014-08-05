@@ -1,4 +1,4 @@
-define([] , function () {
+function ListEntriesModel() {
     var ListEntriesModel = function() {
       this.selectedEntries =  [];
       this.allEntriesSelected = false;
@@ -36,4 +36,4 @@ define([] , function () {
     
     return ListEntriesModel;
 
-});
+}

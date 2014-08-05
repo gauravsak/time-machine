@@ -1,6 +1,6 @@
-define(['modules/app','models/listEntriesModel','service/entriesService'] , function (app,ListEntriesModel) {
-
-  app.controller('listEntriesController',['$scope','$routeParams','$sessionStorage','$rootScope','entriesService', function($scope, $routeParams, $sessionStorage,$rootScope,entriesService){  	
+angular.module("controllers", ["models", "services"])
+//define(['modules/app','models/listEntriesModel','service/entriesService'] , function (app,ListEntriesModel) {
+.controller('listEntriesController',['$scope','$routeParams','$sessionStorage','$rootScope','entriesService', function($scope, $routeParams, $sessionStorage,$rootScope,entriesService){  	
 
     var model = new ListEntriesModel();
     $scope.model = model;
@@ -59,5 +59,3 @@ define(['modules/app','models/listEntriesModel','service/entriesService'] , func
     };
 
   }]);
-
-});

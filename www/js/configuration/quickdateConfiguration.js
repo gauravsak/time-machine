@@ -1,5 +1,6 @@
-define(['modules/app'], function(app){
-	app.config(['ngQuickDateDefaultsProvider',function(ngQuickDateDefaultsProvider) {
+angular.module("config", [])
+//define(['modules/app'], function(app){
+.config(['ngQuickDateDefaultsProvider',function(ngQuickDateDefaultsProvider) {
 	  ngQuickDateDefaultsProvider.set({
 	  	dateFormat: 'dd/MM/yyyy',
 	  	disableTimepicker: true,
@@ -11,4 +12,3 @@ define(['modules/app'], function(app){
 	  	}
  	  });
 	}]);
-});

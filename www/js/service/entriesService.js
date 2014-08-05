@@ -1,5 +1,6 @@
-define(['modules/app'] , function (app) {
-  app.service('entriesService',['$http',function($http){
+angular.module("services", [])
+//define(['modules/app'] , function (app) {
+.service('entriesService',['$http',function($http){
   	var getLastDate = function(date) {
   		var year = date.getFullYear(), month = date.getMonth();
   		return new Date(year, month + 1, 0);
@@ -35,4 +36,3 @@ define(['modules/app'] , function (app) {
     };
 
   }]);
-});

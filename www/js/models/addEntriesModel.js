@@ -1,4 +1,4 @@
-define([] , function () {
+function AddEntriesModel() {
 
   var getDates = function(month, year) {
     var dates = [];
@@ -128,4 +128,4 @@ AddEntriesModel.prototype.selectDate = function(date) {
 };
 
 return AddEntriesModel;
-});	
+}

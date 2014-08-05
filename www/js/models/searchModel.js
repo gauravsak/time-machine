@@ -1,4 +1,4 @@
-define([], function() {
+function SearchModel() {
 	var SearchModel = function(contacts, projects) {
 		this._contacts = contacts;
 		this._projects = projects;
@@ -26,4 +26,4 @@ define([], function() {
 
 
 	return SearchModel;
-});
+}

@@ -1,5 +1,6 @@
-define(['modules/app','service/redirectService','controllers/entriesController'], function(app){
-	app.config(['$routeProvider',function($routeProvider){
+angular.module("routes", ["services", "controllers"])
+//define(['modules/app','service/redirectService','controllers/entriesController'], function(app){
+.config(['$routeProvider',function($routeProvider){
 		$routeProvider.when('/entries/current',{
 			resolve : {redirect : ['redirectService',function(redirectService) {
 				redirectService.currentEntries();
@@ -10,4 +11,3 @@ define(['modules/app','service/redirectService','controllers/entriesController']
 			templateUrl : 'views/entries.html'	
 		});
 	}]);
-});

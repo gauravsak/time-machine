@@ -1,5 +1,6 @@
-define(['modules/app'] , function (app) {
-  app.service('searchService',['$http',function($http){
+angular.module("services", [])
+//define(['modules/app'] , function (app) {
+.service('searchService',['$http',function($http){
 
   	var formatDate = function(date) {
       var actualMonth = date.getMonth() + 1;
@@ -13,4 +14,3 @@ define(['modules/app'] , function (app) {
   	};
 
   }]);
-});

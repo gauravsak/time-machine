@@ -1,6 +1,6 @@
-define(['modules/app','models/searchModel','service/searchService',''] , function (app, SearchModel) {
-
-  app.controller('searchController',['$scope', '$rootScope','$sessionStorage' ,'searchService',function($scope, $rootScope, $sessionStorage, searchService){  	
+angular.module("controllers", ["models", "services"])
+//define(['modules/app','models/searchModel','service/searchService',''] , function (app, SearchModel) {
+.controller('searchController',['$scope', '$rootScope','$sessionStorage' ,'searchService',function($scope, $rootScope, $sessionStorage, searchService){  	
 	$rootScope.alerts = {};
 	var model = new SearchModel($sessionStorage.contacts,$sessionStorage.projects);	
 	$scope.model = model;
@@ -43,5 +43,3 @@ define(['modules/app','models/searchModel','service/searchService',''] , functio
   	};
 
   }]);
-
-});
